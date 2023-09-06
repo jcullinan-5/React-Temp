@@ -47,8 +47,9 @@ export const config: TemplateConfig = {
  * take on the form: featureName/entityId
  */
 export const getPath = (): string => {
-  return "index.html";
+  return SEARCH_PATH;
 };
+
 /**
  * This allows the user to define a function which will take in their template
  * data and procude a HeadConfig object. When the site is generated, the HeadConfig
