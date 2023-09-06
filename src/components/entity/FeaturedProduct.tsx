@@ -4,7 +4,6 @@ import type { ProductProfile } from "src/types/entities";
 const defaultFields: string[] = [
   "c_featuredProductsSection.title",
   "c_featuredProductsSection.products.name",
-  "c_featuredProductsSection.products.richTextDescription",
   "c_featuredProductsSection.products.primaryPhoto",
   "c_featuredProductsSection.products.c_primaryCTA",
 ];

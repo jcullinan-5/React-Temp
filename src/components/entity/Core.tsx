@@ -1,14 +1,8 @@
 import { ReactNode } from "react";
-import { HoursTable } from "@yext/sites-react-components";
-import {
-  Link,
-  Address,
-  getDirections,
-  LocationMap,
-} from "@yext/pages/components";
+import { HoursStatus } from "@yext/sites-react-components";
+import { Address, LocationMap } from "@yext/pages/components";
 import { GoogleMaps } from "@yext/components-tsx-maps";
 import type { LocationProfile } from "src/types/entities";
-import { FaPhone, FaEnvelope } from "react-icons/fa";
 import { useBreakpoint } from "src/common/useBreakpoints";
 import { LazyLoadWrapper } from "src/components/common/LazyLoadWrapper";
 
@@ -47,85 +41,40 @@ const Core = (props: CoreProps) => {
       />
     </svg>
   );
-
   return (
-    <div className="Core py-8 sm:py-16 bg-brand-gray-100">
+    <div className="Core bg-brand-gray-100">
       <div className="container">
-        <div className="flex flex-row flex-wrap">
-          <CoreSection>
-            <CoreHeading>Information</CoreHeading>
-            <Address address={profile.address} />
-            <Link
-              className="Link--primary Link--underline font-bold mt-2"
-              href={`${getDirections(
-                profile.address,
-                profile.ref_listings,
-                profile.googlePlaceId
-              )}`}
-            >
-              Get Directions
-            </Link>
-            {/* TODO(GENERATOR): use Phone component */}
-            {profile.mainPhone && (
-              <div className="flex items-center mt-4">
-                <FaPhone className="text-blue-500 mr-2" />
-                <span className="mr-2 font-bold">Phone</span>
-                <span>{profile.mainPhone}</span>
-              </div>
-            )}
-            {profile.tollFreePhone && (
-              <div className="flex items-center mt-4">
-                <FaPhone className="text-blue-500 mr-2" />
-                <span className="mr-2 font-bold">Toll-free</span>
-                <span>{profile.tollFreePhone}</span>
-              </div>
-            )}
-            {profile.emails && (
-              <div className="flex items-center mt-4">
-                <FaEnvelope className="text-blue-500 mr-2" />
-                <Link
-                  className="Link--primary Link--underline font-bold"
-                  cta={{ link: profile.emails[0], linkType: "Email" }}
-                />
-              </div>
-            )}
-          </CoreSection>
-          {(profile.hours || profile.additionalHoursText) && (
+        <div className="flex flex-row flex-wrap justify-center">
+          <div className="w-full lg:w-1/2">
+            {" "}
             <CoreSection>
-              <CoreHeading>Hours</CoreHeading>
-              {profile.hours && (
-                <HoursTable hours={profile.hours} startOfWeek="Monday" />
+              <CoreHeading>Location</CoreHeading>
+              <Address address={profile.address} />
+
+              {profile.mainPhone && (
+                <div className="items-center mt-4">
+                  <span className="mr-2 font-bold">Phone:</span>
+                  <span>{profile.mainPhone}</span>
+                </div>
               )}
-              {profile.additionalHoursText && (
-                <div className="mt-4">{profile.additionalHoursText}</div>
-              )}
+              {profile.hours && <HoursStatus hours={profile.hours} />}
             </CoreSection>
-          )}
-          {profile.services && (
-            <CoreSection>
-              <CoreHeading>Services</CoreHeading>
-              <ul className="list-inside">
-                {profile.services.map((service) => (
-                  <li className="mb-2" key={service}>
-                    {service}
-                  </li>
-                ))}
-              </ul>
-            </CoreSection>
+          </div>
+          {isDesktopBreakpoint && profile.yextDisplayCoordinate && (
+            <div className="w-full lg:w-1/2">
+              <LazyLoadWrapper>
+                <LocationMap
+                  className="h-full"
+                  clientKey="gme-yextinc"
+                  coordinate={profile.yextDisplayCoordinate}
+                  provider={GoogleMaps}
+                >
+                  {mappinSVG}
+                </LocationMap>
+              </LazyLoadWrapper>
+            </div>
           )}
         </div>
-        {isDesktopBreakpoint && profile.yextDisplayCoordinate && (
-          <LazyLoadWrapper>
-            <LocationMap
-              className="h-[300px] mt-16"
-              clientKey="gme-yextinc"
-              coordinate={profile.yextDisplayCoordinate}
-              provider={GoogleMaps}
-            >
-              {mappinSVG}
-            </LocationMap>
-          </LazyLoadWrapper>
-        )}
       </div>
     </div>
   );

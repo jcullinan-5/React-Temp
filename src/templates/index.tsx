@@ -78,14 +78,12 @@ export const config: TemplateConfig = {
       // Events Fields
       "c_eventsSection.title",
       "c_eventsSection.events.name",
-      "c_eventsSection.events.time",
       "c_eventsSection.events.description",
       "c_eventsSection.events.c_primaryCTA",
       "c_eventsSection.events.photoGallery",
       // FAQ Fields
       "c_faqSection.title",
       "c_faqSection.faqs.question",
-      "c_faqSection.faqs.answer",
       // Gallery Fields
       "c_gallerySection",
       "photoGallery",
@@ -109,7 +107,6 @@ export const config: TemplateConfig = {
       // Product Fields
       "c_featuredProductsSection.title",
       "c_featuredProductsSection.products.name",
-      "c_featuredProductsSection.products.richTextDescription",
       "c_featuredProductsSection.products.primaryPhoto",
       "c_featuredProductsSection.products.c_primaryCTA",
       // Promo Fields
@@ -129,7 +126,7 @@ export const config: TemplateConfig = {
     ]),
     // Defines the scope of entities that qualify for this stream.
     filter: {
-      entityTypes: ["location"],
+      savedFilterIds: ["pages_locations"],
     },
     // The entity language profiles that documents will be generated for.
     localization: {

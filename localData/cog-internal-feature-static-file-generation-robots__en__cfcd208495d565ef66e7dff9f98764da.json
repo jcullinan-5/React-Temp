@@ -7,7 +7,6 @@
     "templateType": "JS"
   },
   "_site": {
-    "c_brand": "Yext Consulting",
     "c_copyrightMessage": "© 2022. All Rights Reserved.",
     "c_facebook": "https://www.facebook.com/",
     "c_footerLinks": [
@@ -67,29 +66,28 @@
       ],
       "logo": {
         "height": 100,
-        "url": "http://a.mktgcdn.com/p/BzSALSNKyVBFz797EoaKt_k3rgAJonv9DnbGYMbxqds/100x100.png",
+        "url": "http://a.mktgcdn.com/p-sandbox/hoFxFk7QZTsh10XJezwLl_mU98YpK9h9-5lF0O7W7f4/100x100.png",
         "width": 100
       }
     },
     "c_instagram": "https://www.instagram.com/",
     "c_linkedIn": "https://www.linkedin.com/",
-    "c_nearbySectionAPIKey": "a76f3747d89260bdebb2c3223cffe03e",
-    "c_reviewsAPIKey": "950cb865b1378ec95ad87c7b2a54a806",
-    "c_searchExperienceAPIKey": "134988aadced7171cc410730c3aec4f6",
+    "c_nearbySectionAPIKey": "987d25d8dc4b8ce7fd81920017cbd4c3",
+    "c_searchExperienceAPIKey": "b9ce79c568f5bd88a1d5498aaa083dd5",
     "c_twitter": "https://www.twitter.com/",
     "c_youtube": "https://www.youtube.com/",
     "id": "site-entity",
     "meta": {
       "entityType": {
         "id": "ce_site",
-        "uid": 132489
+        "uid": 129530
       },
       "locale": "en"
     },
     "name": "Site Entity",
-    "uid": 64216926
+    "uid": 45434596
   },
-  "businessId": 3861963,
+  "businessId": 3233222,
   "key": "0:robots:knowledgeGraph:0:en",
   "locale": "en",
   "meta": {

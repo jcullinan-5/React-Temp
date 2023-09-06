@@ -31,13 +31,6 @@ const Hero = (props: HeroProps) => {
               />
             </div>
           )}
-          {/* TODO(aganesh) : use Reviews component when available */}
-          {props.rating && (
-            <div className="mb-6 lg:mb-8">
-              <span> {props.rating} out of 5 </span>
-              <span>({props.numReviews} reviews)</span>
-            </div>
-          )}
           {(props.cta1 || props.cta2) && (
             <div className="flex flex-col lg:flex-row mb-4 gap-4">
               {props.cta1 && (
